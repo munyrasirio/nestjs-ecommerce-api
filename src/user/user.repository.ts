@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { UUID } from 'crypto';
 
 @Injectable()
 export class UserRepository {
@@ -18,6 +19,9 @@ export class UserRepository {
     return registeredEmail !== undefined;
   }
 
-    return receivedUser !== undefined;
+  async userExists(userId: UUID) {
+    const registeredUser = this.users.find((user) => user.id === userId);
+
+    return registeredUser !== undefined;
   }
 }

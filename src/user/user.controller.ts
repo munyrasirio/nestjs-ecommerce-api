@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/create-user.dto';
-import { randomUUID } from 'node:crypto';
+import { randomUUID } from 'crypto';
 
 @Controller('/users')
 export class UserController {
