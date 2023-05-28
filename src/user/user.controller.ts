@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/create-user.dto';
+import { randomUUID } from 'node:crypto';
 
 @Controller('/users')
 export class UserController {
@@ -8,7 +9,8 @@ export class UserController {
 
   @Post()
   async createUser(@Body() userData: CreateUserDTO) {
-    this.userRepository.save(userData);
+    const id = randomUUID();
+    this.userRepository.save({ ...userData, id });
 
     return userData;
   }
