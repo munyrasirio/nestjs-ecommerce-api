@@ -1,38 +1,31 @@
+## :shopping_cart: Ecommerce Nestjs API :shopping_cart:
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+<img src='https://img.shields.io/github/languages/count/munyrasirio/nestjs-ecommerce-api?style=for-the-badge'>
+<img src='https://img.shields.io/github/languages/code-size/munyrasirio/nestjs-ecommerce-api?style=for-the-badge'>
+<img src="https://img.shields.io/github/last-commit/munyrasirio/nestjs-ecommerce-api?style=for-the-badge" alt="Last Commit" />
+<img src="https://img.shields.io/github/license/munyrasirio/nestjs-ecommerce-api?style=for-the-badge" alt="License" />
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+<p align="center"> 
+  <a href="#install">Installation</a> | <a href="#quickstart">Quickstart</a> | <a href="#contribute">Contribute</a> | <a href="#license">License</a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+Simple CRUD developed with [NestJS](https://nestjs.com/) for introductory studies to the framework. It has `User` and `Product` modules, having a strong relationship between them.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The initial idea of ​​the prototype was developed in the formation of NestJS on the [Alura](https://www.alura.com.br/) platform.
 
-## Installation
+_Obs.: All test files have been removed._
+
+### :rocket: Quickstart <span id='quickstart'></span>
+
+Install the dependencies
 
 ```bash
 $ yarn install
 ```
 
-## Running the app
+Wait for it to finish and then run the project:
 
 ```bash
 # development
@@ -45,29 +38,13 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Test
+### :hugs: Contribute <span id='contribute'></span>
 
-```bash
-# unit tests
-$ yarn run test
+1. Fork this repository
+2. Create a branch with your feature: `git checkout -b my-feature`
+3. Commit your changes: `git commit -m 'feat: my feature'`
+4. Push your branch: `git push origin my-feature`
 
-# e2e tests
-$ yarn run test:e2e
+### :page_with_curl: License <span id='license'></span>
 
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+This project is under the MIT license. Take a look at the [LICENSE](https://github.com/munyrasirio/nestjs-ecommerce-api/blob/main/LICENSE) file for more details.
