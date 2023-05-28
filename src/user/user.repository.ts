@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { UUID } from 'crypto';
-import { UserEntity } from './user.entity';
+import { TUser } from './user.type';
 
 @Injectable()
 export class UserRepository {
-  private users: UserEntity[] = [];
+  private users: TUser[] = [];
 
-  async save(user: UserEntity) {
+  async save(user: TUser) {
     this.users.push(user);
   }
 
@@ -21,7 +21,7 @@ export class UserRepository {
     return user;
   }
 
-  async update(id: UUID, userData: Partial<UserEntity>) {
+  async update(id: UUID, userData: Partial<TUser>) {
     const user = this.getById(id);
 
     Object.entries(userData).forEach(([key, value]) => {

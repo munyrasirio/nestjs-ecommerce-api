@@ -10,9 +10,11 @@ import {
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UUID, randomUUID } from 'crypto';
-import { UserEntity } from './user.entity';
+import { TUser } from './user.type';
 import { GetUserDTO } from './dto/get-user.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
+
+type NewType = UpdateUserDTO;
 
 @Controller('/users')
 export class UserController {
@@ -21,18 +23,17 @@ export class UserController {
   @Post()
   async createUser(@Body() userData: CreateUserDTO) {
     const id = randomUUID();
-    const userEntity = new UserEntity({ ...userData, id });
-
-    this.userRepository.save(userEntity);
+    const user: TUser = { ...userData, id };
+    this.userRepository.save(user);
 
     return {
-      user: new GetUserDTO(userEntity.id, userEntity.name),
+      user: new GetUserDTO(user.id, user.name),
       message: 'User created successfully.',
     };
   }
 
   @Put('/:id')
-  async updateUser(@Param('id') id: UUID, @Body() userData: UpdateUserDTO) {
+  async updateUser(@Param('id') id: UUID, @Body() userData: NewType) {
     const user = await this.userRepository.update(id, userData);
 
     return {
