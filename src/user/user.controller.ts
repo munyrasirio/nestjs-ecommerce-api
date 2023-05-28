@@ -23,7 +23,7 @@ export class UserController {
   @Post()
   async createUser(@Body() userData: CreateUserDTO) {
     const id = randomUUID();
-    const user: TUser = { ...userData, id };
+    const user: TUser = { id, ...userData };
     this.userRepository.save(user);
 
     return {

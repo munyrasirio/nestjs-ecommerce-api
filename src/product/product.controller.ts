@@ -20,7 +20,7 @@ export class ProductController {
   @Post()
   async createProduct(@Body() productData: CreateProductDTO) {
     const id = randomUUID();
-    const product: TProduct = { ...productData, id };
+    const product: TProduct = { id, ...productData };
     this.productRepository.save(product);
 
     return {
