@@ -1,0 +1,10 @@
+export enum ValidationType {
+  'NOT_EMPTY' = 'NOT_EMPTY',
+  'MAX_LENGTH' = 'MAX_LENGTH',
+  'INVALID' = 'INVALID',
+  'IS_NUMBER' = 'IS_NUMBER',
+  'IS_ARRAY' = 'IS_ARRAY',
+  'ARRAY_LENGTH' = 'ARRAY_LENGTH',
+  'IS_POSITIVE' = 'IS_POSITIVE',
+  'CURRENCY' = 'CURRENCY',
+}
