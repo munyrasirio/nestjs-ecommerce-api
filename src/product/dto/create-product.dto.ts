@@ -11,6 +11,7 @@ import {
   Min,
   ValidateNested,
 } from 'class-validator';
+import { IsUser } from 'src/user/validation/is-user.validator';
 
 export class ProductCharacteristicsDTO {
   @IsNotEmpty()
@@ -32,6 +33,7 @@ export class ProductImagesDTO {
 
 export class CreateProductDTO {
   @IsUUID()
+  @IsUser({ message: 'This userID does not exist in our database.' })
   userId: string;
 
   @IsNotEmpty()
