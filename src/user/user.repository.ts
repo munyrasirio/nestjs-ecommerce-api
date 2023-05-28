@@ -14,10 +14,15 @@ export class UserRepository {
     return this.users;
   }
 
-  async update(id: UUID, userData: Partial<UserEntity>) {
+  private getById(id: UUID) {
     const user = this.users.find((user) => user.id === id);
-
     if (!user) throw new Error('User does not exist');
+
+    return user;
+  }
+
+  async update(id: UUID, userData: Partial<UserEntity>) {
+    const user = this.getById(id);
 
     Object.entries(userData).forEach(([key, value]) => {
       if (key === 'id') return;
@@ -25,6 +30,13 @@ export class UserRepository {
     });
 
     return user;
+  }
+
+  async delete(id: UUID) {
+    const userById = this.getById(id);
+    this.users = this.users.filter((user) => user.id !== id);
+
+    return userById.id;
   }
 
   async emailExists(email: string) {
