@@ -3,6 +3,7 @@ import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { randomUUID } from 'crypto';
 import { UserEntity } from './user.entity';
+import { GetUserDTO } from './dto/get-user.dto';
 
 @Controller('/users')
 export class UserController {
@@ -14,10 +15,16 @@ export class UserController {
     const userEntity = new UserEntity({ ...userData, id });
 
     this.userRepository.save(userEntity);
+
+    return {
+      user: new GetUserDTO(userEntity.id, userEntity.name),
+      message: 'User created successfully.',
+    };
   }
 
   @Get()
   async getUsers() {
-    return this.userRepository.get();
+    const users = await this.userRepository.get();
+    return users.map((user) => new GetUserDTO(user.id, user.name));
   }
 }
