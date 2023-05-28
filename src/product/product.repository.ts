@@ -32,4 +32,11 @@ export class ProductRepository {
 
     return product;
   }
+
+  async delete(id: UUID) {
+    const productById = this.getById(id);
+    this.products = this.products.filter((product) => product.id !== id);
+
+    return productById.id;
+  }
 }
