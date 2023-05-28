@@ -13,4 +13,23 @@ export class ProductRepository {
   async get() {
     return this.products;
   }
+
+  private getById(id: UUID) {
+    const product = this.products.find((product) => product.id === id);
+    if (!product) throw new Error('Product does not exist');
+
+    return product;
+  }
+
+  async update(id: UUID, productData: Partial<TProduct>) {
+    const product = this.getById(id);
+    const cannotUpdate = ['id', 'userId'];
+
+    Object.entries(productData).forEach(([key, value]) => {
+      if (cannotUpdate.includes(key)) return;
+      product[key] = value;
+    });
+
+    return product;
+  }
 }
