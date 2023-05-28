@@ -13,7 +13,10 @@ export class UserRepository {
   }
 
   async emailExists(email: string) {
-    const receivedUser = this.users.find((user) => user.email === email);
+    const registeredEmail = this.users.find((user) => user.email === email);
+
+    return registeredEmail !== undefined;
+  }
 
     return receivedUser !== undefined;
   }
