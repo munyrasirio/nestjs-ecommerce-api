@@ -11,7 +11,7 @@
   <a href="#install">Installation</a> | <a href="#quickstart">Quickstart</a> | <a href="#contribute">Contribute</a> | <a href="#license">License</a>
 </p>
 
-Simple CRUD developed with [NestJS](https://nestjs.com/) for introductory studies to the framework. It has `User` and `Product` modules, having a strong relationship between them.
+Simple CRUD with database developed with [NestJS](https://nestjs.com/) for introductory studies to the framework. To handle the data [PostgresSQL](https://www.postgresql.org/) and [TypeORM](https://typeorm.io/) were used.
 
 The initial idea of ​​the prototype was developed in the formation of NestJS on the [Alura](https://www.alura.com.br/) platform.
 
@@ -25,7 +25,31 @@ Install the dependencies
 $ yarn install
 ```
 
-Wait for it to finish and then run the project:
+If you already have Docker installed, you can skip this step, but if you don't, follow the [Docker](https://docs.docker.com/get-docker/) guide to install it on you machine.
+
+After that, create an `.env` file on root folder and add your environment variables:
+
+```bash
+DB_HOST=
+DB_PORT=
+DB_USERNAME=
+DB_PASSWORD=
+DB_NAME=db_ecommerce
+DB_ADMIN_EMAIL=
+```
+
+With `.env` ready and Docker running, run on your terminal the command to start the container:
+
+```bash
+docker-compose up -d
+```
+
+Now `pgAdmin` is running! Open your browser and access it: `http://localhost:8081`. Login with the same values from your `.env`!
+On admin, click on "Add New Server", give your server a name and navigate to "Connection" tab. Add the missing values based on the `.env` file as well: Host, Port, Username, Password.
+
+After these steps, just save, expand the options for the created server and right click on Databases. Create the bank using the same name of `.env`.
+
+If everything was done properly, you are ready to run the project:
 
 ```bash
 # development
