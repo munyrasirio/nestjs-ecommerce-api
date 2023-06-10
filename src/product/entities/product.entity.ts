@@ -36,11 +36,11 @@ export class ProductEntity {
   //images: TProductImages[];
 
   @CreateDateColumn({ name: 'created_at' })
-  createAt: string;
+  createAt?: string;
 
   @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: string;
+  updatedAt?: string;
 
   @DeleteDateColumn({ name: 'deleted_at' })
-  deletedAt: string;
+  deletedAt?: string;
 }
