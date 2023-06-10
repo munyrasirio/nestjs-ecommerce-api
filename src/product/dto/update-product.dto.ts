@@ -16,10 +16,11 @@ import {
   ProductCharacteristicsDTO,
   ProductImagesDTO,
 } from './create-product.dto';
+import { UUID } from 'crypto';
 
 export class UpdateProductDTO {
   @IsUUID()
-  id: string;
+  id: UUID;
 
   @IsUUID()
   @IsUser({ message: 'This userID does not exist in our database.' })
