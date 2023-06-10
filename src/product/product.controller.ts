@@ -7,7 +7,6 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { ProductRepository } from './product.repository';
 import { CreateProductDTO } from './dto/create-product.dto';
 import { UUID, randomUUID } from 'crypto';
 import { ProductEntity } from './entities/product.entity';
@@ -17,10 +16,7 @@ import { UpdateProductDTO } from './dto/update-product.dto';
 
 @Controller('/products')
 export class ProductController {
-  constructor(
-    private productRepository: ProductRepository,
-    private readonly productService: ProductService,
-  ) {}
+  constructor(private readonly productService: ProductService) {}
 
   @Post()
   async createProduct(@Body() productData: CreateProductDTO) {
