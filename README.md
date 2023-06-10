@@ -62,6 +62,8 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+Feel free to use se API endpoint collection located at root folder! :purple_heart:
+
 ### :hugs: Contribute <span id='contribute'></span>
 
 1. Fork this repository
