@@ -10,7 +10,7 @@ import {
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UUID, randomUUID } from 'crypto';
-import { TUser } from './user.type';
+import { UserEntity } from './user.entity';
 import { GetUserDTO } from './dto/get-user.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
 
@@ -23,7 +23,7 @@ export class UserController {
   @Post()
   async createUser(@Body() userData: CreateUserDTO) {
     const id = randomUUID();
-    const user: TUser = { id, ...userData };
+    const user: UserEntity = { id, ...userData };
     this.userRepository.save(user);
 
     return {
