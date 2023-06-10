@@ -64,8 +64,8 @@ export class UpdateProductDTO {
 
   @IsNotEmpty()
   @IsOptional()
-  created_at: string;
+  createdAt: string;
 
   @IsNotEmpty()
-  updated_at: string;
+  updatedAt: string;
 }

@@ -67,8 +67,8 @@ export class CreateProductDTO {
   images: ProductImagesDTO[];
 
   @IsNotEmpty()
-  created_at: string;
+  createdAt: string;
 
   @IsNotEmpty()
-  updated_at: string;
+  updatedAt: string;
 }
