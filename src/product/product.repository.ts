@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { TProduct } from './product.type';
+import { ProductEntity } from './product.entity';
 import { UUID } from 'crypto';
 
 @Injectable()
 export class ProductRepository {
-  private products: TProduct[] = [];
+  private products: ProductEntity[] = [];
 
-  async save(product: TProduct) {
+  async save(product: ProductEntity) {
     this.products.push(product);
   }
 
@@ -21,7 +21,7 @@ export class ProductRepository {
     return product;
   }
 
-  async update(id: UUID, productData: Partial<TProduct>) {
+  async update(id: UUID, productData: Partial<ProductEntity>) {
     const product = this.getById(id);
     const cannotUpdate = ['id', 'userId'];
 

@@ -10,7 +10,7 @@ import {
 import { ProductRepository } from './product.repository';
 import { CreateProductDTO } from './dto/create-product.dto';
 import { UUID, randomUUID } from 'crypto';
-import { TProduct } from './product.type';
+import { ProductEntity } from './product.entity';
 import { GetProductDTO } from './dto/get-product.dto';
 
 @Controller('/products')
@@ -20,7 +20,7 @@ export class ProductController {
   @Post()
   async createProduct(@Body() productData: CreateProductDTO) {
     const id = randomUUID();
-    const product: TProduct = { id, ...productData };
+    const product: ProductEntity = { id, ...productData };
     this.productRepository.save(product);
 
     return {
@@ -30,7 +30,10 @@ export class ProductController {
   }
 
   @Put('/:id')
-  async updateProduct(@Param('id') id: UUID, @Body() productData: TProduct) {
+  async updateProduct(
+    @Param('id') id: UUID,
+    @Body() productData: ProductEntity,
+  ) {
     const product = await this.productRepository.update(id, productData);
 
     return {
