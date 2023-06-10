@@ -10,7 +10,7 @@ import {
 import { ProductRepository } from './product.repository';
 import { CreateProductDTO } from './dto/create-product.dto';
 import { UUID, randomUUID } from 'crypto';
-import { ProductEntity } from './product.entity';
+import { ProductEntity } from './entities/product.entity';
 import { GetProductDTO } from './dto/get-product.dto';
 
 @Controller('/products')
