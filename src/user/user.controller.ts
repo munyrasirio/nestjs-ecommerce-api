@@ -13,38 +13,40 @@ import { UUID, randomUUID } from 'crypto';
 import { UserEntity } from './user.entity';
 import { GetUserDTO } from './dto/get-user.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
-
-type NewType = UpdateUserDTO;
+import { UserService } from './user.service';
 
 @Controller('/users')
 export class UserController {
-  constructor(private userRepository: UserRepository) {}
+  constructor(
+    private userRepository: UserRepository,
+    private userService: UserService,
+  ) {}
 
   @Post()
   async createUser(@Body() userData: CreateUserDTO) {
     const id = randomUUID();
-    const user: UserEntity = { id, ...userData };
-    this.userRepository.save(user);
+    const userEntity: UserEntity = { id, ...userData };
+    await this.userService.createUser(userEntity);
 
     return {
-      user: new GetUserDTO(user.id, user.name),
+      user: new GetUserDTO(userEntity.id, userEntity.name),
       message: 'User created successfully.',
     };
   }
 
   @Put('/:id')
-  async updateUser(@Param('id') id: UUID, @Body() userData: NewType) {
-    const user = await this.userRepository.update(id, userData);
+  async updateUser(@Param('id') id: UUID, @Body() userData: UpdateUserDTO) {
+    const user = await this.userService.updateUser(id, userData);
 
     return {
-      user: new GetUserDTO(user.id, user.name),
+      user,
       message: 'User updated successfully.',
     };
   }
 
   @Delete('/:id')
   async deleteUser(@Param('id') id: UUID) {
-    const userId = await this.userRepository.delete(id);
+    const userId = await this.userService.deleteUser(id);
 
     return {
       id: userId,
@@ -54,7 +56,7 @@ export class UserController {
 
   @Get()
   async getUsers() {
-    const users = await this.userRepository.get();
-    return users.map((user) => new GetUserDTO(user.id, user.name));
+    const users = await this.userService.getUsers();
+    return users;
   }
 }
