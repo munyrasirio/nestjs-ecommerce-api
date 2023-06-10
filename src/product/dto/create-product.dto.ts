@@ -11,9 +11,14 @@ import {
   Min,
   ValidateNested,
 } from 'class-validator';
-import { IsUser } from 'src/user/validation/is-user.validator';
+import { ProductEntity } from '../entities/product.entity';
+import { UUID } from 'crypto';
 
 export class ProductCharacteristicsDTO {
+  id: UUID;
+
+  product: ProductEntity;
+
   @IsNotEmpty()
   name: string;
 
@@ -23,6 +28,10 @@ export class ProductCharacteristicsDTO {
 }
 
 export class ProductImagesDTO {
+  id: UUID;
+
+  product: ProductEntity;
+
   @IsUrl()
   url: string;
 
@@ -33,7 +42,6 @@ export class ProductImagesDTO {
 
 export class CreateProductDTO {
   @IsUUID()
-  @IsUser({ message: 'This userID does not exist in our database.' })
   userId: string;
 
   @IsNotEmpty()
@@ -65,10 +73,4 @@ export class CreateProductDTO {
   @ValidateNested()
   @Type(() => ProductImagesDTO)
   images: ProductImagesDTO[];
-
-  @IsNotEmpty()
-  createdAt: string;
-
-  @IsNotEmpty()
-  updatedAt: string;
 }
